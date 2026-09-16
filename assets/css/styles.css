@@ -896,6 +896,7 @@ img {
 .footer__title,
 .footer__subtitle,
 .footer__link {
+  white-space: nowrap;
   color: #FFF;
 }
 
