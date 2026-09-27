@@ -1,26 +1,110 @@
+/*==================== GOOGLE FONTS ====================*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/*==================== VARIABLES CSS ====================*/
 :root {
-    color-scheme: light;
-    --ink: #20231f;
-    --muted: #666b63;
-    --paper: #f7f6f1;
-    --line: #dedfd8;
-    --accent: #8b5e3c;
+    
+    /*========== Colors ==========*/
+    /* Change favorite color */
+    --hue-color: 19; /*Purple 250 - Green 142 - Blue 230 - Pink 340*/
+    
+    /* HSL color mode */
+    --first-color: hsl(var(--hue-color), 69%, 61%);
+    --first-color-second: hsl(var(--hue-color), 69%, 61%);
+    --first-color-alt: hsl(var(--hue-color), 57%, 53%);
+    --first-color-lighter: hsl(var(--hue-color), 92%, 85%);
+    --title-color: hsl(var(--hue-color), 8%, 15%);
+    --text-color: hsl(var(--hue-color), 8%, 45%);
+    --text-color-light: hsl(var(--hue-color), 8%, 65%);
+    --input-color: hsl(var(--hue-color), 70%, 96%);
+    --body-color: hsl(var(--hue-color), 60%, 99%);
+    --container-color: #fff;
+    --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
+    --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
     --content-width: 1120px;
+
+    /*========== Font and typography ==========*/
+    --body-font: 'Poppins', sans-serif;
+
+        /* .5rem = 8px, 1rem = 16px, 1.5rem = 24px ... */
+    --big-font-size: 2rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1.125rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+
+    /*========== Font weight ==========*/
+    --font-medium: 500;
+    --font-semi-bold: 600;
+
+    /*========== Margenes Bottom ==========*/
+    /* .25rem = 4px, .5rem = 8px, .75rem = 12px ... */
+    --mb-0-25: .25rem;
+    --mb-0-5: .5rem;
+    --mb-0-75: .75rem;
+    --mb-1: 1rem;
+    --mb-1-5: 1.5rem;
+    --mb-2: 2rem;
+    --mb-2-5: 2.5rem;
+    --mb-3: 3rem;
+
+    /*========== z index ==========*/
+    --z-tooltip: 10;
+    --z-fixed: 100;
+    --z-modal: 1000;
 }
 
-* { box-sizing: border-box; }
+/*==================== BASE ====================*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
 
-body 
-{
-    margin: 0;
-    color: var(--ink);
-    background: var(--paper);
-    font-family: Georgia, "Times New Roman", serif;
-    line-height: 1.6;
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0 0 var(--header-height) 0;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+main {
+    width: min(var(--content-width), calc(100% - 48px));
+    margin: 0 auto;
+    padding: 72px 0 88px;
+}
+
+footer {
+    padding: 22px 24px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    text-align: center;
+    font: 0.78rem/1.5 Arial, sans-serif;
+}
+
+h1, h2, h3, h4 {
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
+/*==================== COVER ====================*/
 .cover {
     min-height: min(74vh, 760px);
     position: relative;
@@ -54,15 +138,6 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
     text-transform: uppercase;
 }
 
-h1 {
-    max-width: 760px;
-    margin: 0;
-    font-size: clamp(3rem, 8vw, 6.8rem);
-    font-weight: 400;
-    letter-spacing: -.055em;
-    line-height: .98;
-}
-
 .cover-deck {
     max-width: 560px;
     margin: 22px 0 0;
@@ -70,12 +145,7 @@ h1 {
     color: rgb(255 255 255 / 88%);
 }
 
-main {
-    width: min(var(--content-width), calc(100% - 48px));
-    margin: 0 auto;
-    padding: 72px 0 88px;
-}
-
+/*==================== MAIN ====================*/
 .intro {
     max-width: 700px;
     margin: 0 auto 60px;
@@ -84,7 +154,7 @@ main {
     font-size: 1.15rem;
 }
 
-.story-row {
+.portfolio-row {
     display: grid;
     grid-template-columns: 1.15fr .85fr;
     align-items: center;
@@ -93,31 +163,23 @@ main {
     border-top: 1px solid var(--line);
 }
 
-.story-row.reverse { grid-template-columns: .85fr 1.15fr; }
+.portfolio-row.reverse { grid-template-columns: .85fr 1.15fr; }
 
-.story-image {
+.portfolio-image {
     aspect-ratio: 4 / 3;
     overflow: hidden;
     background: #dedfd8;
 }
 
-.story-image img { transition: transform 500ms ease; }
+.portfolio-image img { transition: transform 500ms ease; }
 
-.story-image:hover img { transform: scale(1.025); }
+.portfolio-image:hover img { transform: scale(1.025); }
 
-.story-copy { max-width: 440px; }
+.portfolio-copy { max-width: 440px; }
 
-.story-copy .eyebrow { color: var(--accent); margin-bottom: 12px; }
+.portfolio-copy .eyebrow { color: var(--accent); margin-bottom: 12px; }
 
-h2 {
-    margin: 0 0 16px;
-    font-size: clamp(2rem, 4vw, 3.4rem);
-    font-weight: 400;
-    letter-spacing: -.04em;
-    line-height: 1.08;
-}
-
-.story-copy p { margin: 0; color: var(--muted); font-size: 1.05rem; }
+.portfolio-copy p { margin: 0; color: var(--muted); font-size: 1.05rem; }
 
 .caption {
     margin-top: 10px;
@@ -125,27 +187,20 @@ h2 {
     font: 0.8rem/1.5 Arial, sans-serif;
 }
 
-footer {
-    padding: 22px 24px;
-    border-top: 1px solid var(--line);
-    color: var(--muted);
-    text-align: center;
-    font: 0.78rem/1.5 Arial, sans-serif;
-}
-
+/*==================== MEDIA QUERIES ====================*/
 @media (max-width: 700px) {
     .cover { min-height: 68vh; }
     .cover-inner { width: min(100% - 36px, var(--content-width)); padding-bottom: 52px; }
     main { width: min(100% - 36px, var(--content-width)); padding-top: 48px; }
     .intro { margin-bottom: 36px; }
-    .story-row, .story-row.reverse {
+    .portfolio-row, .portfolio-row.reverse {
     grid-template-columns: 1fr;
     gap: 22px;
     padding: 28px 0 38px;
     }
-    .story-row.reverse .story-image { order: 0; }
-    .story-row.reverse .story-copy { order: 1; }
-    .story-copy { max-width: none; }
+    .portfolio-row.reverse .portfolio-image { order: 0; }
+    .portfolio-row.reverse .portfolio-copy { order: 1; }
+    .portfolio-copy { max-width: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
