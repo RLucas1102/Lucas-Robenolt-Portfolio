@@ -816,6 +816,8 @@ img {
 
 /*==================== CONTACT ME ====================*/
 .contact__container {
+  display: grid;
+  justify-content: center;
   row-gap: 3rem;
 }
 
@@ -999,6 +1001,12 @@ img {
     width: 200px;
   }
 
+  .contact__container {
+    display: grid;
+    justify-content: center;
+    row-gap: 3rem;
+  }
+
   .testimonial__data,
   .testimonial__header{
     flex-direction: column;
@@ -1036,9 +1044,14 @@ img {
   .skills__container,
   .portfolio__content,
   .project__container,
-  .contact__container,
   .footer__container{
     grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .contact__container {
+    display: grid;
+    justify-content: center;
+    row-gap: 3rem;
   }
 
   .qualification__sections{
@@ -1216,6 +1229,12 @@ img {
       padding-top: .8rem;
     }
 
+    .contact__container {
+      display: grid;
+      justify-content: center;
+      row-gap: 3rem;
+    }
+
     .footer__container{
       grid-template-columns: repeat(3,1fr);
     }
@@ -1277,6 +1296,13 @@ img {
 
   .swiper-container-horizontal > .swiper-pagination-bullets{
     bottom: -4.5rem;
+  }
+  
+  .contact__container {
+    
+    display: grid;
+    justify-content: center;
+    row-gap: 3rem;
   }
 
   .contact__form{
